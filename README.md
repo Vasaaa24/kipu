@@ -169,7 +169,7 @@ Komponenty jsou přidané přes shadcn CLI (registry `@react-bits` v `components
 - **CountUp** – počítadlo „25+ let na trhu“
 - **DotGrid** – jemné interaktivní pozadí hero (jen desktop, načítá se líně)
 
-Úprava oproti originálu: v `DotGrid` a `SpotlightCard` je zápis do `ref` přesunut z renderu do
+Úpravy oproti originálu: `SplitText` má navíc prop `startDelay` (navázání na intro); v `DotGrid` a `SpotlightCard` je zápis do `ref` přesunut z renderu do
 `useLayoutEffect` (kvůli ESLint pravidlu `react-hooks/refs`).
 
 Další komponenty:
