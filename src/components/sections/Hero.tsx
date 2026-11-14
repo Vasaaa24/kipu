@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { ArrowRight, CircleCheck, Zap } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { LinkButton } from "@/components/ui/Button";
@@ -9,11 +9,14 @@ import { Media } from "@/components/ui/Media";
 import SplitText from "@/components/reactbits/SplitText";
 import CountUp from "@/components/reactbits/CountUp";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
+import { getIntroDelay } from "@/lib/intro";
 import { HeroBackground } from "./HeroBackground";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { hero, slogan } = siteConfig;
+  // pokud běží úvodní intro, hero animace na něj navážou
+  const [introDelay] = useState(getIntroDelay);
 
   useGSAP(
     () => {
@@ -25,14 +28,14 @@ export function Hero() {
           duration: 0.9,
           ease: "power3.out",
           stagger: 0.12,
-          delay: 0.35,
+          delay: 0.35 + introDelay,
         });
         gsap.from("[data-hero-visual]", {
           autoAlpha: 0,
           scale: 0.96,
           duration: 1.1,
           ease: "power3.out",
-          delay: 0.2,
+          delay: 0.2 + introDelay,
         });
         // jemná parallaxa vizuálu při scrollu
         gsap.to("[data-hero-parallax]", {
@@ -73,6 +76,7 @@ export function Hero() {
               splitType="words"
               textAlign="left"
               delay={70}
+              startDelay={introDelay}
               duration={0.9}
               className="font-heading text-[2.4rem] leading-[1.05] font-extrabold tracking-tight text-brand sm:text-6xl lg:text-[4.25rem]"
             />
@@ -134,7 +138,7 @@ export function Hero() {
             {slogan.enabled ? (
               <div className="absolute -bottom-6 -left-2 rounded-2xl bg-white px-5 py-4 shadow-[0_20px_50px_-20px_rgb(20_71_58/0.45)] ring-1 ring-line sm:-left-8">
                 <p className="font-heading text-4xl font-extrabold text-brand">
-                  <CountUp to={slogan.years} duration={2} suffix="+" />
+                  <CountUp to={slogan.years} duration={2} delay={introDelay} suffix="+" />
                 </p>
                 <p className="mt-1 text-sm font-medium text-muted">{slogan.yearsLabel}</p>
               </div>
