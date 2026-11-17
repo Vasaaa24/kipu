@@ -77,7 +77,6 @@ export function Intro() {
         // 5) průlet a odkrytí webu
         .addLabel("exit", 2.55)
         .to("[data-i-stage]", { scale: 1.18, autoAlpha: 0, duration: 0.7, ease: "power2.in" }, "exit")
-        .to("[data-i-skip]", { autoAlpha: 0, duration: 0.3 }, "exit")
         .to(ref.current, { autoAlpha: 0, duration: 0.6, ease: "power1.inOut" }, "exit+=0.45");
 
       const skip = () => {
@@ -165,14 +164,6 @@ export function Intro() {
           </p>
         </div>
       </div>
-
-      <button
-        type="button"
-        data-i-skip
-        className="absolute right-5 bottom-5 rounded-full px-4 py-2 text-xs font-semibold tracking-[0.2em] text-white/50 uppercase ring-1 ring-white/15 transition-colors hover:text-white hover:ring-white/40"
-      >
-        Přeskočit
-      </button>
     </div>
   );
 }

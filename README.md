@@ -142,8 +142,8 @@ Před zobrazením webu se přes celou obrazovku přehraje krátké „filmové�
 proběhne linkou, rozsvítí se emblém, vyjede nápis KIPU s podtitulem, přes emblém přejede odlesk
 a následuje průlet do webu. Je to samostatná vrstva – samotnou stránku nijak nemění.
 
-- Přehraje se **jen na homepage a jen jednou za návštěvu** (sessionStorage). Přeskočit jde kliknutím,
-  klávesou nebo tlačítkem „Přeskočit“.
+- Přehraje se **jen na homepage a jen jednou za návštěvu** (sessionStorage). Přeskočit jde kliknutím
+  nebo libovolnou klávesou.
 - Nepřehraje se při `prefers-reduced-motion` ani bez JavaScriptu (pojistka: overlay po 8 s zmizí vždy).
 - Vypnutí / podtitul: `siteConfig.intro` (`enabled`, `tagline`). Komponenta `src/components/layout/Intro.tsx`,
   emblém `public/logo-mark-light.png` (po dodání SVG loga stačí vyměnit soubor / cestu `MARK` v komponentě).
