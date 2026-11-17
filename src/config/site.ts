@@ -41,8 +41,16 @@ export const siteConfig = {
   name: "KIPU",
   legalName: "KIPU, s.r.o.",
   ico: "25684574",
-  /** Produkční URL – lze přepsat proměnnou NEXT_PUBLIC_SITE_URL */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.kipu.cz",
+  /**
+   * Produkční URL (pro náhledy odkazů – og:image, sitemap, kanonickou adresu).
+   * Pořadí: NEXT_PUBLIC_SITE_URL → produkční adresa projektu na Vercelu
+   * (nastavuje Vercel sám; po připojení vlastní domény je to ta doména) → www.kipu.cz.
+   */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
+      : "https://www.kipu.cz"),
   locale: "cs_CZ",
 
   /**

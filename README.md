@@ -47,7 +47,7 @@ npm run lint
   datech (JSON-LD) je uvedena Česká republika.
 - **Texty služeb** – `siteConfig.services.items` a `siteConfig.construction.items`.
 - **Doba uchování osobních údajů** v `/gdpr` – 12 měsíců.
-- **Produkční doména** – `NEXT_PUBLIC_SITE_URL` (výchozí `https://www.kipu.cz`).
+- **Produkční doména** – na Vercelu se bere automaticky (adresa projektu, po připojení domény kipu.cz). Mimo Vercel nastavte `NEXT_PUBLIC_SITE_URL`. Pozor: na Vercelu ji **nenastavujte** na kipu.cz dřív, než bude doména připojená – jinak nebude fungovat náhledový obrázek odkazu.
 
 ---
 
