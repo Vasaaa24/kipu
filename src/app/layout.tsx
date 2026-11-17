@@ -40,7 +40,15 @@ export const metadata: Metadata = {
     siteName: siteConfig.legalName,
     title: siteConfig.seo.title,
     description: siteConfig.seo.description,
-    images: [{ url: siteConfig.seo.ogImage, width: 1200, height: 630, alt: siteConfig.logo.alt }],
+    images: [
+      {
+        url: siteConfig.seo.ogImage,
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "KIPU, s.r.o. – elektromontážní firma z Prahy",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

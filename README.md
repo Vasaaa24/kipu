@@ -80,7 +80,7 @@ Soubory v `public/`:
 | `logo-compact-light.png` | patička – varianta pro tmavé pozadí (zelená → bílá) |
 | `logo.png` / `logo-light.png` | plné logo vč. sloganu (JSON-LD, případné další použití) |
 | `logo-mark.png` | samotný emblém (dekorace v sekcích) |
-| `og-image.png` | náhled při sdílení (1200×630) |
+| `og-image.jpg` | obrázek v náhledu odkazu (WhatsApp, Messenger, e-mail…) – 1200×630, JPG pod 300 kB; po výměně pošlete odkaz s `?v=2`, aby se neukázal starý náhled z mezipaměti |
 | `src/app/icon.png`, `src/app/apple-icon.png` | favicon / ikona na plochu |
 
 Všechny PNG jsou zatím vygenerované z dodaného JPG (pozadí odstraněno).

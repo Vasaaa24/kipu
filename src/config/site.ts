@@ -79,7 +79,7 @@ export const siteConfig = {
       "rozvaděče",
       "Praha 10",
     ],
-    ogImage: "/og-image.png",
+    ogImage: "/og-image.jpg",
   },
 
   /** Filmové intro před zobrazením webu (při každém načtení homepage). `enabled: false` = vypnout */
