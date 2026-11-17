@@ -100,8 +100,8 @@
 /* Intro – viditelné jen když ho inline skript v <head> povolí (src/lib/intro.ts) */
 html[data-intro="play"] #intro {
   display: block;
-  /* pojistka: kdyby se nenačetl JavaScript, overlay po 5 s sám zmizí */
-  animation: intro-failsafe 0.4s ease-out 5s forwards;
+  /* pojistka: kdyby se nenačetl JavaScript, overlay po 6 s sám zmizí */
+  animation: intro-failsafe 0.4s ease-out 6s forwards;
 }
 
 @keyframes intro-failsafe {

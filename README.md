@@ -136,16 +136,18 @@ CONTACT_TO_OVERRIDE=vas-email-z-resend-uctu@example.com
 
 ---
 
-## Úvodní animace (intro)
+## Intro (úvodní animace)
 
-Před zobrazením webu se přehraje krátké „filmové“ intro (~3 s): světelné paprsky, logo najede ze zoomu,
-přejede přes něj odlesk, objeví se podtitul a „průletem“ logem se odkryje web; hero animace na něj navazují.
+Před zobrazením webu se přes celou obrazovku přehraje krátké „filmové“ intro (~3 s): zlatý proud
+proběhne linkou, rozsvítí se emblém, vyjede nápis KIPU s podtitulem, přes emblém přejede odlesk
+a následuje průlet do webu. Je to samostatná vrstva – samotnou stránku nijak nemění.
 
-- Přehraje se **jen na homepage a jen jednou za návštěvu** (sessionStorage), kliknutím / klávesou jde přeskočit.
-- Nepřehraje se při `prefers-reduced-motion` ani bez JavaScriptu (pojistka: overlay po 5 s zmizí vždy).
-- Vypnutí / text: `siteConfig.intro` (`enabled`, `tagline`). Komponenta `src/components/layout/Intro.tsx`,
-  časování `src/lib/intro.ts`. Logo v intru je `logo.srcOnDark` – po výměně za SVG se změní samo.
-- Pro opakované testování: v DevTools smažte *Session Storage* → `kipu-intro-seen`, nebo otevřete nové okno.
+- Přehraje se **jen na homepage a jen jednou za návštěvu** (sessionStorage). Přeskočit jde kliknutím,
+  klávesou nebo tlačítkem „Přeskočit“.
+- Nepřehraje se při `prefers-reduced-motion` ani bez JavaScriptu (pojistka: overlay po 6 s zmizí vždy).
+- Vypnutí / podtitul: `siteConfig.intro` (`enabled`, `tagline`). Komponenta `src/components/layout/Intro.tsx`,
+  emblém `public/logo-mark-light.png` (po dodání SVG loga stačí vyměnit soubor / cestu `MARK` v komponentě).
+- Pro opakované testování smažte v DevTools *Session Storage* → `kipu-intro-seen`, nebo otevřete anonymní okno.
 
 ## Animace a přístupnost
 

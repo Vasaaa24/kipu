@@ -33,8 +33,6 @@ export interface SplitTextProps {
   color?: string;
   accentColor?: string;
   onLetterAnimationComplete?: () => void;
-  /** KIPU: zpoždění (s) první animace – např. po úvodním intru */
-  startDelay?: number;
 }
 
 type Look = { from: gsap.TweenVars; to: gsap.TweenVars; ease: string | ((t: number) => number) };
@@ -109,8 +107,7 @@ const SplitText = ({
   hoverEffect = 'none',
   color,
   accentColor,
-  onLetterAnimationComplete,
-  startDelay = 0
+  onLetterAnimationComplete
 }: SplitTextProps) => {
   const ref = useRef<HTMLParagraphElement>(null);
   const completedTextRef = useRef<string | null>(null);
@@ -374,7 +371,6 @@ const SplitText = ({
           }
           if (revealed) return undefined;
           intro = reveal(true, {
-            delay: trigger === 'load' ? startDelay : 0,
             scrollTrigger:
               trigger === 'load'
                 ? undefined

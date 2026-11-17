@@ -74,18 +74,18 @@ export const siteConfig = {
     ogImage: "/og-image.png",
   },
 
+  /** Filmové intro před zobrazením webu (jen homepage, 1× za návštěvu). `enabled: false` = vypnout */
+  intro: {
+    enabled: true,
+    tagline: "Elektromontážní firma",
+  },
+
   /**
    * Slogan – zatím k ověření. Pro skrytí nastavte `enabled: false`
    * (zmizí z hero i z počítadla let).
    * POZOR: aktuální logo (logo.png) má slogan přímo v obrázku –
    * v headeru/footeru se proto používá kompaktní verze bez sloganu.
    */
-  /** Úvodní animace před zobrazením webu (jen homepage, 1× za návštěvu). `enabled: false` = vypnout */
-  intro: {
-    enabled: true,
-    tagline: "Elektromontážní firma · Praha",
-  },
-
   slogan: {
     enabled: true,
     text: "Jsme s vámi více než 25 let na trhu",
