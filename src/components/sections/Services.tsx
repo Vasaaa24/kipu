@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { icons } from "@/lib/icons";
 import { Reveal } from "@/components/ui/Reveal";
@@ -41,6 +42,31 @@ export function Services() {
             );
           })}
         </ul>
+
+        {services.gallery.length ? (
+          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {services.gallery.map((photo) => (
+              <li
+                key={photo.src}
+                data-reveal
+                className="group relative aspect-[4/3] overflow-hidden rounded-3xl bg-brand-50 ring-1 ring-line sm:last:odd:col-span-2 sm:last:odd:aspect-[8/3] lg:last:odd:col-span-1 lg:last:odd:aspect-[4/3]"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                />
+                <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-brand-950/80 to-transparent" />
+                <p className="absolute bottom-4 left-5 flex items-center gap-2 font-heading text-base font-bold text-white">
+                  <span aria-hidden="true" className="h-px w-6 bg-gold" />
+                  {photo.caption}
+                </p>
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </Reveal>
     </section>
   );

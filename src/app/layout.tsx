@@ -5,8 +5,6 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/layout/JsonLd";
-import { Intro } from "@/components/layout/Intro";
-import { introInitScript } from "@/lib/intro";
 import "./globals.css";
 
 const inter = Inter({
@@ -60,11 +58,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    // suppressHydrationWarning: atribut data-intro nastavuje inline skript ještě před hydratací
-    <html lang="cs" className={`${inter.variable} ${montserrat.variable}`} suppressHydrationWarning>
-      <head>
-        {siteConfig.intro.enabled ? <script dangerouslySetInnerHTML={{ __html: introInitScript }} /> : null}
-      </head>
+    <html lang="cs" className={`${inter.variable} ${montserrat.variable}`}>
       <body className="min-h-dvh">
         <a
           href="#obsah"
@@ -74,7 +68,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <JsonLd />
         <SmoothScroll>
-          {siteConfig.intro.enabled ? <Intro /> : null}
           <Header />
           <main id="obsah">{children}</main>
           <Footer />

@@ -18,9 +18,9 @@ export function About() {
       mm.add(MOTION_OK, () => {
         gsap.fromTo(
           "[data-about-parallax]",
-          { yPercent: 10 },
+          { yPercent: about.image ? 6 : 10 },
           {
-            yPercent: -10,
+            yPercent: about.image ? -6 : -10,
             ease: "none",
             scrollTrigger: { trigger: ref.current, start: "top bottom", end: "bottom top", scrub: true },
           },
@@ -35,20 +35,35 @@ export function About() {
     <section ref={ref} id="o-nas" aria-labelledby="o-nas-title" className="scroll-mt-16 bg-surface py-20 sm:py-28">
       <Reveal className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <div className="relative order-2 lg:order-1">
-          <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] bg-[radial-gradient(120%_100%_at_0%_0%,#ffffff_0%,#eff5f2_55%,#dfeae5_100%)] ring-1 ring-line">
-            <div aria-hidden="true" className="pattern-grid-dark absolute inset-0" />
-            <div data-about-parallax className="absolute inset-0 flex items-center justify-center">
-              <Image
-                src="/logo-mark.png"
-                alt=""
-                aria-hidden="true"
-                width={523}
-                height={481}
-                sizes="(min-width: 1024px) 280px, 50vw"
-                className="w-2/5 max-w-[280px] drop-shadow-[0_30px_40px_rgb(20_71_58/0.25)]"
-              />
+          {about.image ? (
+            <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] bg-brand-50 shadow-[0_40px_80px_-40px_rgb(20_71_58/0.5)] ring-1 ring-line">
+              {/* přesah nahoře/dole kvůli parallaxe */}
+              <div data-about-parallax className="absolute inset-x-0 -top-[10%] -bottom-[10%]">
+                <Image
+                  src={about.image.src}
+                  alt={about.image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover object-[65%_50%]"
+                />
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] bg-[radial-gradient(120%_100%_at_0%_0%,#ffffff_0%,#eff5f2_55%,#dfeae5_100%)] ring-1 ring-line">
+              <div aria-hidden="true" className="pattern-grid-dark absolute inset-0" />
+              <div data-about-parallax className="absolute inset-0 flex items-center justify-center">
+                <Image
+                  src="/logo-mark.png"
+                  alt=""
+                  aria-hidden="true"
+                  width={523}
+                  height={481}
+                  sizes="(min-width: 1024px) 280px, 50vw"
+                  className="w-2/5 max-w-[280px] drop-shadow-[0_30px_40px_rgb(20_71_58/0.25)]"
+                />
+              </div>
+            </div>
+          )}
           <ul className="absolute -bottom-6 left-4 right-4 flex flex-wrap justify-center gap-2 sm:left-8 sm:right-auto sm:justify-start">
             {about.values.map((v) => (
               <li

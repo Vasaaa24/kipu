@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { siteConfig } from "@/config/site";
 import { icons } from "@/lib/icons";
@@ -63,6 +64,17 @@ export function Process() {
         <div data-process-heading className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading id="spoluprace-title" eyebrow={process.eyebrow} title={process.title} />
           <p className="mt-4 max-w-md text-lg leading-relaxed text-muted">{process.intro}</p>
+          {process.image ? (
+            <div className="relative mt-8 aspect-[3/2] overflow-hidden rounded-3xl bg-brand-50 ring-1 ring-line lg:mt-10">
+              <Image
+                src={process.image.src}
+                alt={process.image.alt}
+                fill
+                sizes="(min-width: 1024px) 38vw, 100vw"
+                className="object-cover object-[60%_50%]"
+              />
+            </div>
+          ) : null}
         </div>
 
         <ol data-timeline className="relative">

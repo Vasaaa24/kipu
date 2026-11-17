@@ -33,8 +33,7 @@ npm run lint
 
 | Co | Kde |
 |---|---|
-| **Všechny texty, kontakty, navigace, slogan, služby** | `src/config/site.ts` |
-| **Realizace (galerie)** | `src/data/projects.ts` |
+| **Všechny texty, kontakty, navigace, slogan, služby, fotky** | `src/config/site.ts` |
 | Barvy, písma, design tokeny | `src/app/globals.css` (`@theme`) |
 | Sekce stránky | `src/components/sections/*` |
 | Text zásad ochrany osobních údajů | `src/app/gdpr/page.tsx` |
@@ -49,7 +48,6 @@ Hledejte v kódu `DOPLNIT` a `TODO`:
 - **Oblast působení** – `siteConfig.contact.serviceArea` (zatím „DOPLNIT“). Po doplnění se automaticky
   propíše i do strukturovaných dat (JSON-LD).
 - **Texty služeb** – `siteConfig.services.items` a `siteConfig.construction.items` (označeno `[Text k doplnění]`).
-- **Realizace** – `src/data/projects.ts` (místa, roky, popisy; u skutečných zakázek smažte `placeholder: true`).
 - **Doba uchování osobních údajů** v `/gdpr` (zatím 12 měsíců) – nechte text ideálně zkontrolovat.
 - **Produkční doména** – `NEXT_PUBLIC_SITE_URL` (výchozí `https://www.kipu.cz`).
 
@@ -57,17 +55,18 @@ Hledejte v kódu `DOPLNIT` a `TODO`:
 
 ## Fotky
 
-Web je připravený tak, že kde chybí fotka, zobrazí se elegantní placeholder. Jakmile fotku doplníte,
-placeholder se automaticky nahradí (přes `next/image` – optimalizace a responzivní velikosti).
+Fotky jsou v `public/images/` a cesty k nim v `src/config/site.ts`:
 
-1. **Realizace:** nahrajte fotky do `public/images/realizace/` a v `src/data/projects.ts` doplňte:
-   ```ts
-   image: { src: "/images/realizace/byt-praha-10.jpg", alt: "Nový rozvaděč v bytě, Praha 10" },
-   ```
-2. **Hero (hlavní vizuál):** nahrajte např. `public/images/hero.jpg` a v `src/config/site.ts` nastavte:
-   ```ts
-   hero: { …, image: { src: "/images/hero.jpg", alt: "Elektromontážní práce KIPU" } }
-   ```
+| Kde na webu | Klíč v `site.ts` | Soubor |
+|---|---|---|
+| Hero (hlavní vizuál) | `hero.image` | `tym-rozvadece.jpg` |
+| Pás fotek pod kartami služeb | `services.gallery` (fotka + popisek) | `rozvadec.jpg`, `kabelove-trasy.jpg`, `osvetleni-haly.jpg` |
+| Jak probíhá spolupráce | `process.image` | `montaz-kabelovych-tras.jpg` |
+| O nás | `about.image` | `montaz-konzoli.jpg` |
+
+**Výměna fotky:** nahrajte nový soubor do `public/images/` a v `site.ts` změňte `src` a `alt`.
+Nastavením `image: null` se v hero a v sekci O nás místo fotky zobrazí grafický placeholder,
+v sekci spolupráce fotka zmizí. Optimalizaci a responzivní velikosti řeší `next/image` automaticky.
 
 Doporučení: JPG/WebP, šířka cca 1600–2400 px, vždy vyplňte smysluplný `alt` text.
 
@@ -139,17 +138,6 @@ CONTACT_TO_OVERRIDE=vas-email-z-resend-uctu@example.com
 
 ---
 
-## Úvodní animace (intro)
-
-Před zobrazením webu se přehraje krátké intro (~2,5 s): zlatá linka, logo, podtitul a odkrytí webu
-dvouvrstvou „oponou“; hero animace na něj plynule navazují.
-
-- Přehraje se **jen na homepage a jen jednou za návštěvu** (sessionStorage), kliknutím / klávesou jde přeskočit.
-- Nepřehraje se při `prefers-reduced-motion` ani bez JavaScriptu (pojistka: overlay po 5 s zmizí vždy).
-- Vypnutí / text: `siteConfig.intro` (`enabled`, `tagline`). Komponenta `src/components/layout/Intro.tsx`,
-  časování `src/lib/intro.ts`. Logo v intru je `logo.srcOnDark` – po výměně za SVG se změní samo.
-- Pro opakované testování: v DevTools smažte *Session Storage* → `kipu-intro-seen`, nebo otevřete nové okno.
-
 ## Animace a přístupnost
 
 - **Lenis** (smooth scroll) je propojen s GSAP ScrollTrigger podle README Lenis
@@ -169,7 +157,7 @@ Komponenty jsou přidané přes shadcn CLI (registry `@react-bits` v `components
 - **CountUp** – počítadlo „25+ let na trhu“
 - **DotGrid** – jemné interaktivní pozadí hero (jen desktop, načítá se líně)
 
-Úpravy oproti originálu: `SplitText` má navíc prop `startDelay` (navázání na intro); v `DotGrid` a `SpotlightCard` je zápis do `ref` přesunut z renderu do
+Úprava oproti originálu: v `DotGrid` a `SpotlightCard` je zápis do `ref` přesunut z renderu do
 `useLayoutEffect` (kvůli ESLint pravidlu `react-hooks/refs`).
 
 Další komponenty:

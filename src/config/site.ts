@@ -31,6 +31,9 @@ export type ServiceItem = {
   icon: IconKey;
 };
 
+/** Fotka – soubor v public/images, alt = popis pro nevidomé a vyhledávače */
+export type Photo = { src: string; alt: string };
+
 export type NavItem = { label: string; href: `#${string}` };
 
 const phoneDisplay = "777 654 494";
@@ -78,12 +81,6 @@ export const siteConfig = {
    * POZOR: aktuální logo (logo.png) má slogan přímo v obrázku –
    * v headeru/footeru se proto používá kompaktní verze bez sloganu.
    */
-  /** Úvodní animace před zobrazením webu (jen homepage, 1× za návštěvu). `enabled: false` = vypnout */
-  intro: {
-    enabled: true,
-    tagline: "Elektromontážní firma · Praha",
-  },
-
   slogan: {
     enabled: true,
     text: "Jsme s vámi více než 25 let na trhu",
@@ -126,7 +123,6 @@ export const siteConfig = {
 
   nav: [
     { label: "Služby", href: "#sluzby" },
-    { label: "Realizace", href: "#realizace" },
     { label: "Proč my", href: "#proc-my" },
     { label: "Spolupráce", href: "#spoluprace" },
     { label: "O nás", href: "#o-nas" },
@@ -142,8 +138,11 @@ export const siteConfig = {
     highlights: ["Elektromontážní práce", "Elektroinstalace", "Související stavební úpravy"],
     /** Štítek u vizuálu v hero */
     badge: "Elektromontáže Praha",
-    /** Až bude fotka: { src: "/images/hero.jpg", alt: "…" } */
-    image: null as null | { src: string; alt: string },
+    /** Hlavní fotka v hero (null = elegantní placeholder) */
+    image: {
+      src: "/images/tym-rozvadece.jpg",
+      alt: "Technici KIPU kontrolují výkresovou dokumentaci u rozvaděčů v průmyslové hale",
+    } as Photo | null,
   },
 
   services: {
@@ -190,6 +189,12 @@ export const siteConfig = {
         icon: "wrench",
       },
     ] satisfies ServiceItem[],
+    /** Fotky pod kartami služeb (libovolný počet, ideálně 3) */
+    gallery: [
+      { src: "/images/rozvadec.jpg", alt: "Otevřený rozvaděč s jističi, přípojnicemi a přehledně vedenými vodiči", caption: "Rozvaděče a jištění" },
+      { src: "/images/kabelove-trasy.jpg", alt: "Kabelové žlaby se silovými kabely vedené pod stropem technické chodby", caption: "Kabelové trasy" },
+      { src: "/images/osvetleni-haly.jpg", alt: "Průmyslová hala s LED osvětlením a kabelovými žlaby pod střechou", caption: "Osvětlení hal" },
+    ] satisfies (Photo & { caption: string })[],
   },
 
   construction: {
@@ -220,17 +225,6 @@ export const siteConfig = {
         icon: "layers",
       },
     ] satisfies ServiceItem[],
-  },
-
-  projects: {
-    eyebrow: "Realizace",
-    title: "Vybrané realizace",
-    intro: "Ukázky zakázek, na kterých jsme pracovali. Fotografie postupně doplňujeme.",
-    filters: {
-      all: "Vše",
-      elektro: "Elektromontáže",
-      stavebni: "Stavební práce",
-    },
   },
 
   whyUs: {
@@ -269,6 +263,10 @@ export const siteConfig = {
     title: "Jak probíhá spolupráce",
     intro:
       "Od první poptávky po předání zakázky. Víte, co vás čeká, a rozsah, cenu i termín máte domluvené předem.",
+    image: {
+      src: "/images/montaz-kabelovych-tras.jpg",
+      alt: "Dva elektromontéři na pracovní plošině montují kabelový žlab v hale",
+    } as Photo | null,
     steps: [
       {
         title: "Poptávka",
@@ -306,6 +304,10 @@ export const siteConfig = {
       "Zakládáme si na jasné domluvě, přehledné nabídce a pečlivém provedení. Rozsah prací, cenu a termín si domluvíme před zahájením zakázky.",
     ],
     values: ["Jasná domluva", "Přehledná nabídka", "Pečlivé provedení"],
+    image: {
+      src: "/images/montaz-konzoli.jpg",
+      alt: "Elektromontér KIPU kotví nosnou konzoli kabelového žlabu do betonové stěny",
+    } as Photo | null,
   },
 
   contactSection: {
