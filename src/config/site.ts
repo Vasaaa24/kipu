@@ -74,7 +74,7 @@ export const siteConfig = {
     ogImage: "/og-image.png",
   },
 
-  /** Filmové intro před zobrazením webu (jen homepage, 1× za návštěvu). `enabled: false` = vypnout */
+  /** Filmové intro před zobrazením webu (při každém načtení homepage). `enabled: false` = vypnout */
   intro: {
     enabled: true,
     tagline: "Elektromontážní firma",
