@@ -97,7 +97,7 @@ přegenerovat s finálním logem.
 
 Poptávky se odesílají přes Route Handler `src/app/api/poptavka/route.ts` (validace Zod na klientu
 i serveru, skryté pole proti spamu) službou [Resend](https://resend.com).
-Příjemci: `siteConfig.form.recipients` → **krychfalushii@kipu.cz**.
+Příjemci: `siteConfig.form.recipients` → **krychfalushii@kipu.cz, karadza@kipu.cz**.
 Pokud zákazník vyplní e-mail, je nastaven jako `Reply-To` – stačí odpovědět.
 
 ### 1. API klíč

@@ -130,7 +130,7 @@ export const siteConfig = {
 
   /** Kam chodí poptávky z formuláře (lze přepsat v .env přes CONTACT_TO_OVERRIDE) */
   form: {
-    recipients: ["krychfalushii@kipu.cz"],
+    recipients: ["krychfalushii@kipu.cz", "karadza@kipu.cz"],
   },
 
   nav: [
