@@ -59,7 +59,7 @@ export default function GdprPage() {
         <section>
           <h2>Doba uchování</h2>
           <p>
-            Údaje uchováváme po dobu nezbytnou k vyřízení poptávky, nejdéle však {/* TODO: ověřit */}12 měsíců od
+            Údaje uchováváme po dobu nezbytnou k vyřízení poptávky, nejdéle však 12 měsíců od
             posledního kontaktu, pokud nedojde k uzavření smlouvy. V případě uzavření smlouvy po dobu stanovenou
             právními předpisy.
           </p>

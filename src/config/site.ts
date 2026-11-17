@@ -1,7 +1,6 @@
 /**
  * Centrální konfigurace webu KIPU, s.r.o.
  * Všechny texty, kontakty a nastavení upravujte zde.
- * Položky označené „DOPLNIT“ / TODO je potřeba před spuštěním ověřit.
  */
 
 export type IconKey =
@@ -108,8 +107,7 @@ export const siteConfig = {
       city: "Praha 10",
       country: "CZ",
     },
-    /** TODO: doplnit oblast působení (např. „Praha a Středočeský kraj“) */
-    serviceArea: "DOPLNIT",
+    serviceArea: "Celá Česká republika",
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Kaza%C5%A1sk%C3%A1+1425%2F8%2C+101+00+Praha+10",
     mapsEmbedUrl:
@@ -150,42 +148,41 @@ export const siteConfig = {
     title: "Elektromontážní práce a elektroinstalace",
     intro:
       "Hlavní náplní naší práce jsou elektromontáže a elektroinstalace. Rozsah prací vždy upřesníme podle konkrétní zakázky.",
-    /** TODO: ověřit a doplnit konkrétní nabídku služeb a texty */
     items: [
       {
         title: "Elektroinstalace novostaveb",
         description:
-          "Kompletní elektroinstalace v nových objektech – od rozvržení okruhů po montáž koncových prvků. [Text k doplnění]",
+          "Kompletní elektroinstalace v nových objektech – od rozvržení okruhů po montáž koncových prvků.",
         icon: "home",
       },
       {
         title: "Rekonstrukce elektroinstalace",
         description:
-          "Výměna a modernizace stávajících rozvodů v bytech, domech a komerčních prostorech. [Text k doplnění]",
+          "Výměna a modernizace stávajících rozvodů v bytech, domech a komerčních prostorech.",
         icon: "rebuild",
       },
       {
         title: "Rozvaděče a jištění",
         description:
-          "Montáž a úpravy rozvaděčů, jističů a proudových chráničů. [Text k doplnění]",
+          "Montáž a úpravy rozvaděčů, jističů a proudových chráničů.",
         icon: "panel",
       },
       {
         title: "Osvětlení",
         description:
-          "Montáž vnitřního i venkovního osvětlení, svítidel a ovládacích prvků. [Text k doplnění]",
+          "Montáž vnitřního i venkovního osvětlení, svítidel a ovládacích prvků.",
         icon: "light",
       },
       {
         title: "Slaboproudé rozvody",
         description:
-          "Datové a televizní rozvody, příprava pro zabezpečení a další slaboproudé instalace. [Text k doplnění]",
+          "Datové a televizní rozvody, příprava pro zabezpečení a další slaboproudé instalace.",
         icon: "cable",
       },
       {
         title: "Elektromontážní práce na zakázku",
         description:
-          "Úpravy, rozšíření a drobné elektromontáže podle potřeb zákazníka. [Text k doplnění]",
+          "Úpravy, rozšíření a drobné elektromontáže podle potřeb zákazníka.",
         icon: "wrench",
       },
     ] satisfies ServiceItem[],
@@ -202,7 +199,6 @@ export const siteConfig = {
     title: "Doplňkové stavební práce",
     intro:
       "Stavební úpravy související s elektromontážemi – abyste nemuseli shánět další firmu na zapravení po elektrikářích.",
-    /** TODO: ověřit rozsah doplňkových stavebních prací */
     items: [
       {
         title: "Drážky a zapravení",

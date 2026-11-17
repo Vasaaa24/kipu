@@ -38,17 +38,15 @@ npm run lint
 | Sekce stránky | `src/components/sections/*` |
 | Text zásad ochrany osobních údajů | `src/app/gdpr/page.tsx` |
 
-### Položky k doplnění / ověření
-
-Hledejte v kódu `DOPLNIT` a `TODO`:
+### Užitečné poznámky
 
 - **Slogan „Jsme s vámi více než 25 let na trhu“** – `siteConfig.slogan`. Pro skrytí `enabled: false`
   (zmizí slogan v hero i počítadlo „25+ let na trhu“). Pozor: současný obrázek loga (`/public/logo.png`)
   má slogan přímo v sobě – v headeru a patičce se proto používá kompaktní verze bez sloganu.
-- **Oblast působení** – `siteConfig.contact.serviceArea` (zatím „DOPLNIT“). Po doplnění se automaticky
-  propíše i do strukturovaných dat (JSON-LD).
-- **Texty služeb** – `siteConfig.services.items` a `siteConfig.construction.items` (označeno `[Text k doplnění]`).
-- **Doba uchování osobních údajů** v `/gdpr` (zatím 12 měsíců) – nechte text ideálně zkontrolovat.
+- **Oblast působení** – `siteConfig.contact.serviceArea` („Celá Česká republika“); ve strukturovaných
+  datech (JSON-LD) je uvedena Česká republika.
+- **Texty služeb** – `siteConfig.services.items` a `siteConfig.construction.items`.
+- **Doba uchování osobních údajů** v `/gdpr` – 12 měsíců.
 - **Produkční doména** – `NEXT_PUBLIC_SITE_URL` (výchozí `https://www.kipu.cz`).
 
 ---

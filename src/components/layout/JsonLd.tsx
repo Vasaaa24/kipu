@@ -3,7 +3,6 @@ import { siteConfig } from "@/config/site";
 /** Strukturovaná data LocalBusiness / Electrician pro vyhledávače */
 export function JsonLd() {
   const { contact, url } = siteConfig;
-  const hasArea = contact.serviceArea !== "DOPLNIT";
 
   const data = {
     "@context": "https://schema.org",
@@ -28,7 +27,7 @@ export function JsonLd() {
       postalCode: contact.address.postalCode,
       addressCountry: contact.address.country,
     },
-    ...(hasArea ? { areaServed: contact.serviceArea } : {}),
+    areaServed: { "@type": "Country", name: "Česká republika" },
     knowsAbout: ["Elektromontážní práce", "Elektroinstalace", "Stavební práce související s elektroinstalací"],
   };
 
