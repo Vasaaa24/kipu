@@ -111,7 +111,6 @@ export const siteConfig = {
     ],
     emails: [
       { name: "Vadym", role: "Poptávky a realizace", email: "krychfalushii@kipu.cz" },
-      { name: "Elvir Karadža", role: "Poptávky a realizace", email: "karadza@kipu.cz" },
       { name: "Fakturace", role: "Faktury a účetnictví", email: "faktury@kipu.cz" },
     ],
     address: {
