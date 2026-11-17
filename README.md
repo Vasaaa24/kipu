@@ -182,4 +182,17 @@ z registry). Aktivuje se po restartu Claude Code ve složce projektu (potvrďte 
 ## SEO
 
 Metadata + Open Graph (`src/app/layout.tsx`), `sitemap.xml`, `robots.txt`, JSON-LD typu `Electrician`
-(`src/components/layout/JsonLd.tsx`), `lang="cs"`.
+se seznamem služeb a oblastí působení (`src/components/layout/JsonLd.tsx`), `lang="cs"`.
+
+- **Titulek a popis ve výsledcích hledání:** `siteConfig.seo.title` a `siteConfig.seo.description`.
+- **Cílové výrazy:** `siteConfig.seo.keywords` (Google je nepoužívá pro řazení, slouží jako přehled).
+
+### Registrace ve vyhledávačích (jednorázově)
+
+1. **Google Search Console** – <https://search.google.com/search-console> → *Přidat službu* → **Doména** `kipu.cz`
+   → Google ukáže TXT záznam `google-site-verification=…` → přidat ve WEDOS (název prázdný, typ TXT)
+   → Ověřit. Pak *Soubory Sitemap* → `https://kipu.cz/sitemap.xml` → Odeslat.
+2. **Seznam Webmaster** – <https://search.seznam.cz/webmaster> → přidat `https://kipu.cz` → ověřit
+   (meta značka / soubor) → odeslat sitemapu `https://kipu.cz/sitemap.xml`.
+3. **Firemní profil Google** (Google Maps) – <https://business.google.com> – pro zobrazení v mapách
+   a u hledání typu „elektrikář Praha“ má největší vliv.

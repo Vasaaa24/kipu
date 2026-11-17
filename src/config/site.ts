@@ -66,18 +66,31 @@ export const siteConfig = {
   },
 
   seo: {
-    title: "KIPU, s.r.o. – elektromontážní firma Praha",
+    /**
+     * Titulek a popis = to, co Google/Seznam ukazují ve výsledcích hledání.
+     * Titulek ideálně do ~60 znaků, popis do ~160 znaků; nejdůležitější slova na začátek.
+     */
+    title: "Elektromontáže a elektroinstalace Praha | KIPU, s.r.o.",
     titleTemplate: "%s | KIPU, s.r.o.",
     description:
-      "KIPU, s.r.o. – elektromontážní firma z Prahy. Elektromontážní práce a elektroinstalace, doplněné o související stavební úpravy. Nezávazná poptávka.",
+      "Elektromontážní firma KIPU z Prahy – elektroinstalace novostaveb i rekonstrukce, rozvaděče, osvětlení a slaboproud. Působíme po celé ČR. Nezávazná poptávka.",
+    /** Vyhledávače meta keywords téměř ignorují – slouží spíš jako přehled cílových výrazů */
     keywords: [
-      "elektromontáže",
-      "elektroinstalace",
       "elektrikář Praha",
+      "elektromontáže Praha",
+      "elektroinstalace Praha",
       "elektromontážní firma",
+      "elektroinstalace novostaveb",
       "rekonstrukce elektroinstalace",
-      "rozvaděče",
-      "Praha 10",
+      "výměna elektroinstalace",
+      "montáž rozvaděčů",
+      "rozvaděče a jištění",
+      "montáž osvětlení",
+      "osvětlení hal",
+      "kabelové trasy",
+      "slaboproudé rozvody",
+      "elektromontáže Praha 10",
+      "drážky a zapravení",
     ],
     ogImage: "/og-image.jpg",
   },

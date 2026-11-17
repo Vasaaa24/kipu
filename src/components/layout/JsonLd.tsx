@@ -27,8 +27,20 @@ export function JsonLd() {
       postalCode: contact.address.postalCode,
       addressCountry: contact.address.country,
     },
-    areaServed: { "@type": "Country", name: "Česká republika" },
+    areaServed: [
+      { "@type": "City", name: "Praha" },
+      { "@type": "Country", name: "Česká republika" },
+    ],
     knowsAbout: ["Elektromontážní práce", "Elektroinstalace", "Stavební práce související s elektroinstalací"],
+    // nabízené služby – přímo z konfigurace webu
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Služby",
+      itemListElement: [...siteConfig.services.items, ...siteConfig.construction.items].map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.title, description: s.description },
+      })),
+    },
   };
 
   return (
