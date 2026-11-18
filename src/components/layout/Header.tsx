@@ -135,7 +135,7 @@ export function Header() {
               </a>
               <a href={phone.href} className={buttonClass("secondary", "w-full")}>
                 <Phone aria-hidden="true" className="size-4" />
-                {phone.name} – {phone.display}
+                {phone.display}
               </a>
             </div>
           </nav>

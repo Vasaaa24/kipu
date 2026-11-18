@@ -29,7 +29,9 @@ export function Contact() {
                         <Phone aria-hidden="true" className="size-5 text-gold-light" />
                       </span>
                       <span>
-                        <span className="block text-sm text-white/70">{p.name}</span>
+                        <span className="block text-sm text-white/70">
+                          {p.name} · {p.role}
+                        </span>
                         <span className="block font-heading text-xl font-bold tracking-wide">{p.display}</span>
                       </span>
                     </a>

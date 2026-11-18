@@ -35,7 +35,7 @@ export type Photo = { src: string; alt: string };
 
 export type NavItem = { label: string; href: `#${string}` };
 
-const phoneDisplay = "777 654 494";
+const phoneDisplay = "+420 777 654 494";
 
 export const siteConfig = {
   name: "KIPU",
@@ -117,13 +117,14 @@ export const siteConfig = {
   contact: {
     phones: [
       {
-        name: "Vadym",
+        name: "Vadym Krychfalushii",
+        role: "jednatel společnosti",
         display: phoneDisplay,
         href: "tel:+420777654494",
       },
     ],
     emails: [
-      { name: "Vadym", role: "Poptávky a realizace", email: "krychfalushii@kipu.cz" },
+      { name: "Vadym Krychfalushii", role: "jednatel společnosti", email: "krychfalushii@kipu.cz" },
       { name: "Fakturace", role: "Faktury a účetnictví", email: "faktury@kipu.cz" },
     ],
     address: {

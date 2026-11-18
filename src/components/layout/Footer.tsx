@@ -35,7 +35,7 @@ export async function Footer() {
               <li key={p.href}>
                 <a href={p.href} className="inline-flex items-center gap-2.5 hover:text-white">
                   <Phone aria-hidden="true" className="size-4 text-gold" />
-                  {p.name} – {p.display}
+                  {p.display}
                 </a>
               </li>
             ))}
