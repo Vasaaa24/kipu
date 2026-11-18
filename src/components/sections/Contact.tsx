@@ -21,7 +21,12 @@ export function Contact() {
           <aside data-reveal aria-label="Kontaktní údaje" className="flex flex-col gap-6">
             <div className="rounded-[2rem] bg-brand p-6 text-white sm:p-8">
               <h3 className="font-heading text-lg font-bold">Kontaktujte nás přímo</h3>
-              <ul className="mt-6 space-y-5">
+              {/* kontaktní osoba – jméno a funkce jen jednou, pod tím telefon a e-mail */}
+              <p className="mt-5 border-b border-white/15 pb-5">
+                <span className="block font-semibold">{contact.phones[0].name}</span>
+                <span className="block text-sm text-gold-light">{contact.phones[0].role}</span>
+              </p>
+              <ul className="mt-5 space-y-5">
                 {contact.phones.map((p) => (
                   <li key={p.href}>
                     <a href={p.href} className="group flex items-center gap-4">
@@ -29,9 +34,7 @@ export function Contact() {
                         <Phone aria-hidden="true" className="size-5 text-gold-light" />
                       </span>
                       <span>
-                        <span className="block text-sm text-white/70">
-                          {p.name} · {p.role}
-                        </span>
+                        <span className="block text-sm text-white/70">Telefon</span>
                         <span className="block font-heading text-xl font-bold tracking-wide">{p.display}</span>
                       </span>
                     </a>
@@ -45,7 +48,8 @@ export function Contact() {
                       </span>
                       <span className="min-w-0">
                         <span className="block text-sm text-white/70">
-                          {e.name} · {e.role}
+                          {/* u kontaktní osoby jen „E-mail“, u ostatních (fakturace) i název a účel */}
+                          {e.name === contact.phones[0].name ? "E-mail" : `${e.name} · ${e.role}`}
                         </span>
                         <span className="block font-semibold break-all group-hover:underline group-hover:underline-offset-4">
                           {e.email}
